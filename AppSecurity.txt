@@ -1,0 +1,181 @@
+create your own virtual machine ->
+EC2= Elastic Compute Cloud
+
+0.0.0.0/0  All IPv4
+
+::/0	   All IPv6
+
+-->download key from aws-->>
+
+click on virtual machine id
+
+(Windows)
+putty--> to take remte access of virtual machine --SSH--port no. 22
+
+download putty and puttygen.
+
+execute puttygen.
+
+
+ubuntu-->
+by def username is -- ubuntu@ipadd
+
+sudo apt update
+sudo apt install apache2 -y 
+
+
+ISS Service-- Infra as service
+
+--Creating a db server on aws--
+
+DB Host
+name : port
+DB Name : pranayMysqlDB
+DB user : pranaymysqlDB
+DB Password : pranayMysqlDB
+
+
+
+--CLOUD Computing--
+
+Ecosystem for IT infra. is cloud computing.
+
+Almost all IT resources can be delivered as a cloud service.
+
+-> Distributed network & Virtualized resources ->
+ 
+-It allows applications and services to run on a distributed network using virtualized resources.
+-Also allows these to be accessed by common internet protocols and networking standards.
+-End user is not required to know the physical location and configuration of the system that delivers the services.
+
+-> Deployment models
+
+Private Cloud -
+An organization's own cloud.
+outside company no one can use it.
+
+Outsourced private cloud
+h/w handled and maintained by third party.
+
+Community Cloud -
+
+Public Cloud -
+AWS, Azure
+
+Hybrid Cloud - 
+The cloud infra is a compostion of two or more clouds (private, community, or public)
+ e.g. icloud- uses AWS and Azure
+
+--------------------------------
+
+SaaS -
+pl ref. notebook
+
+PaaS -
+ref AWS/PaaS.jpg
+
+| Cloud Provider |
+| 
+| No Co
+|
+|
+
+IaaS -
+ref AWS/IaaS.jpg
+
+
+------------------------------------
+SSL - open the site link on whatsapp
+
+https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-18-04
+
+
+------invoke bash
+in configure instance->user data->
+
+#!/bin/bash
+apt update
+apt install apache2 -y
+-runs while booting os
+-->called as bootstrap scripting
+
+buy certificate from third party--> certificate authority
+
+own--> self signed certificate
+
+
+
+
+---------DAMN VULNERABLE WEB APP------------------------------------------
+cmds to run
+
+	3  sudo apt install apache2 -y
+    5  sudo apt-get install git -y
+    6  cd /var/www/html/
+    7  sudo git clone https://github.com/ethicalhack3r/DVWA.git
+    8  ll
+    9  sudo systemctl restart apache2
+   10  sudo apt-get install php libapache2-mod-php php-mysql php-curl php-gd php-mbstring php-xml php-xmlrpc unzip -y
+   
+   //install modules so that 
+   //apache can work with php and php can work with mysql
+   
+   
+   11  sudo apt install mysql-server
+   
+****LEARN CLOUD COMPUTING******
+beyondcloud.in
+*******************************
+****FOR MYSQL DB***********
+
+12  sudo mysql
+
+mysql>
+-----------------------------------------------------------------
+SELECT user,authentication_string,plugin,host FROM mysql.user;
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+FLUSH PRIVILEGES;
+exit
+
+-----------------------------------------------------------------
+   13  mysql -u root -p
+
+mysql>
+------------------------------------------------------------------
+exit
+------------------------------------------------------------------
+
+   14  cd DVWA/
+   15  ll
+   16  cd config/
+   17  ll
+   18  sudo cp config.inc.php.dist config.inc.php
+   19  sudo vim config.inc.php
+   20  sudo mysql -u root -p
+
+mysql>
+------------------------------------------------------------------
+ create database dvwa;
+exit
+------------------------------------------------------------------
+   22  sudo service apache2 restart
+   
+   
+********************************************************
+Notes ::
+LAMP Architecture
+Linux Apache MYSQL PHP
+
+*********************************************************
+
+Testing tutorials:
+1. XSS : https://whisperlab.org/introduction-to-hacking/lectures/web-exploitation
+
+^assignments ques wil be from this
+
+2. SQL Injection:
+https://computersecuritystudent.com/SECURITY_TOOLS/DVWA/DVWAv107/lesson6/index.html
+
+
+
+
